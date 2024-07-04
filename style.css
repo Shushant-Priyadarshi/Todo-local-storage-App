@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap");
 
 html,
 body {
@@ -6,10 +6,23 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  background-image: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+#todo {
+  text-align: center;
 }
 
-.button, .input {
+.delBtn{
+  padding:10px;
+  border-radius: 1rem;
+  border:none;
+  background-color: red;
+  color: white;
+  font-family: "Poppins";
+  cursor: pointer;
+}
+input,
+.Addbtn {
   color: white;
   background-color: #222;
   font-weight: 500;
@@ -24,7 +37,6 @@ body {
   align-items: center;
   border: none;
   font-family: "Outfit", sans-serif;
- 
 }
 
 .container {
@@ -42,9 +54,39 @@ body {
 
 .tasks {
   text-align: center;
+  list-style-type: none;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.1rem;
 }
 
-/* //githubBTN */
+.Addbtn:hover {
+  background-color: #333;
+}
+
+.Addbtn svg {
+  display: inline;
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: 0.75rem;
+  color: white;
+}
+
+.Addbtn:focus svg {
+  animation: spin_357 0.5s linear;
+}
+
+@keyframes spin_357 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .buttongit {
   border: none;
   position: relative;
@@ -52,29 +94,31 @@ body {
   height: 73px;
   padding: 0;
   z-index: 2;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='868' width='2500' viewBox='0 0 726 252.17'%3E%3Cpath d='M483.92 0S481.38 24.71 466 40.11c-11.74 11.74-24.09 12.66-40.26 15.07-9.42 1.41-29.7 3.77-34.81-.79-2.37-2.11-3-21-3.22-27.62-.21-6.92-1.36-16.52-2.82-18-.75 3.06-2.49 11.53-3.09 13.61S378.49 34.3 378 36a85.13 85.13 0 0 0-30.09 0c-.46-1.67-3.17-11.48-3.77-13.56s-2.34-10.55-3.09-13.61c-1.45 1.45-2.61 11.05-2.82 18-.21 6.67-.84 25.51-3.22 27.62-5.11 4.56-25.38 2.2-34.8.79-16.16-2.47-28.51-3.39-40.21-15.13C244.57 24.71 242 0 242 0H0s69.52 22.74 97.52 68.59c16.56 27.11 14.14 58.49 9.92 74.73C170 140 221.46 140 273 158.57c69.23 24.93 83.2 76.19 90 93.6 6.77-17.41 20.75-68.67 90-93.6 51.54-18.56 103-18.59 165.56-15.25-4.21-16.24-6.63-47.62 9.93-74.73C656.43 22.74 726 0 726 0z'/%3E%3C/svg%3E") no-repeat 50% 50%;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='868' width='2500' viewBox='0 0 726 252.17'%3E%3Cpath d='M483.92 0S481.38 24.71 466 40.11c-11.74 11.74-24.09 12.66-40.26 15.07-9.42 1.41-29.7 3.77-34.81-.79-2.37-2.11-3-21-3.22-27.62-.21-6.92-1.36-16.52-2.82-18-.75 3.06-2.49 11.53-3.09 13.61S378.49 34.3 378 36a85.13 85.13 0 0 0-30.09 0c-.46-1.67-3.17-11.48-3.77-13.56s-2.34-10.55-3.09-13.61c-1.45 1.45-2.61 11.05-2.82 18-.21 6.67-.84 25.51-3.22 27.62-5.11 4.56-25.38 2.2-34.8.79-16.16-2.47-28.51-3.39-40.21-15.13C244.57 24.71 242 0 242 0H0s69.52 22.74 97.52 68.59c16.56 27.11 14.14 58.49 9.92 74.73C170 140 221.46 140 273 158.57c69.23 24.93 83.2 76.19 90 93.6 6.77-17.41 20.75-68.67 90-93.6 51.54-18.56 103-18.59 165.56-15.25-4.21-16.24-6.63-47.62 9.93-74.73C656.43 22.74 726 0 726 0z'/%3E%3C/svg%3E") no-repeat 50% 50%;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='868' width='2500' viewBox='0 0 726 252.17'%3E%3Cpath d='M483.92 0S481.38 24.71 466 40.11c-11.74 11.74-24.09 12.66-40.26 15.07-9.42 1.41-29.7 3.77-34.81-.79-2.37-2.11-3-21-3.22-27.62-.21-6.92-1.36-16.52-2.82-18-.75 3.06-2.49 11.53-3.09 13.61S378.49 34.3 378 36a85.13 85.13 0 0 0-30.09 0c-.46-1.67-3.17-11.48-3.77-13.56s-2.34-10.55-3.09-13.61c-1.45 1.45-2.61 11.05-2.82 18-.21 6.67-.84 25.51-3.22 27.62-5.11 4.56-25.38 2.2-34.8.79-16.16-2.47-28.51-3.39-40.21-15.13C244.57 24.71 242 0 242 0H0s69.52 22.74 97.52 68.59c16.56 27.11 14.14 58.49 9.92 74.73C170 140 221.46 140 273 158.57c69.23 24.93 83.2 76.19 90 93.6 6.77-17.41 20.75-68.67 90-93.6 51.54-18.56 103-18.59 165.56-15.25-4.21-16.24-6.63-47.62 9.93-74.73C656.43 22.74 726 0 726 0z'/%3E%3C/svg%3E")
+    no-repeat 50% 50%;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='868' width='2500' viewBox='0 0 726 252.17'%3E%3Cpath d='M483.92 0S481.38 24.71 466 40.11c-11.74 11.74-24.09 12.66-40.26 15.07-9.42 1.41-29.7 3.77-34.81-.79-2.37-2.11-3-21-3.22-27.62-.21-6.92-1.36-16.52-2.82-18-.75 3.06-2.49 11.53-3.09 13.61S378.49 34.3 378 36a85.13 85.13 0 0 0-30.09 0c-.46-1.67-3.17-11.48-3.77-13.56s-2.34-10.55-3.09-13.61c-1.45 1.45-2.61 11.05-2.82 18-.21 6.67-.84 25.51-3.22 27.62-5.11 4.56-25.38 2.2-34.8.79-16.16-2.47-28.51-3.39-40.21-15.13C244.57 24.71 242 0 242 0H0s69.52 22.74 97.52 68.59c16.56 27.11 14.14 58.49 9.92 74.73C170 140 221.46 140 273 158.57c69.23 24.93 83.2 76.19 90 93.6 6.77-17.41 20.75-68.67 90-93.6 51.54-18.56 103-18.59 165.56-15.25-4.21-16.24-6.63-47.62 9.93-74.73C656.43 22.74 726 0 726 0z'/%3E%3C/svg%3E")
+    no-repeat 50% 50%;
   -webkit-mask-size: 100%;
   cursor: pointer;
   background-color: transparent;
-  transform: translateY(8px)
- }
- 
- .buttongit:after {
-  content: '';
+  transform: translateY(8px);
+}
+
+.buttongit:after {
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   box-shadow: 0px 0 0 0 white;
   transition: all 2s ease;
- }
- 
- .buttongit:hover:after {
+}
+
+.buttongit:hover:after {
   box-shadow: 0px -13px 56px 12px #ffffffa6;
- }
- 
- .buttongit span {
+}
+
+.buttongit span {
   position: absolute;
   width: 100%;
   font-size: 15px;
@@ -83,17 +127,17 @@ body {
   top: 39%;
   letter-spacing: 3px;
   text-align: center;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   color: black;
   transition: all 2s ease;
- }
- 
- .buttongit:hover span {
+}
+
+.buttongit:hover span {
   color: white;
- }
- 
- .buttongit:before {
-  content: '';
+}
+
+.buttongit:before {
+  content: "";
   position: absolute;
   width: 0;
   height: 100%;
@@ -102,34 +146,72 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   transition: all 1s ease;
- }
- 
- .buttongit:hover:before {
+}
+
+.buttongit:hover:before {
   width: 100%;
- }
- 
- .git-btn{
-  position:absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  
- }
- 
+}
+
+.git-btn-container {
+  margin: auto;
+}
+li {
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #f4f4f4;
+  border-radius: 2rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.5s;
+  text-align: start;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+}
+
+li:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.1);
+}
+
+.task-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3rem;
+  flex-direction: column;
+}
 
 /* Media Queries for Responsiveness */
-
 @media (max-width: 768px) {
   .form {
-    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .button, .input {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-   
+  .input,
+  .Addbtn {
+    width: 50%;
+    font-size: 1.1rem;
+  }
+  ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  li {
+    width: 60%;
+    font-size: 1.5rem;
+  }
+  .delBtn{
+    font-size: 1.1rem;
+  }
+
+  .git-btn-container {
+    margin-left: 100px;
   }
 }
 
-
-
+#invisible-para{
+  font-size: 2rem;
+  font-weight: 800;
+}
